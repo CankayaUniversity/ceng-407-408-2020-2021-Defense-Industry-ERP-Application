@@ -1,0 +1,57 @@
+﻿@page
+@model ERP_APP.Pages.HDetailsModel
+
+@{
+    ViewData["Title"] = "HDetails";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+
+    <div>
+       
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <h7> Çalışan ID </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblHumanR.HResourceId)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Ad </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblHumanR.WorkerName)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Soyad </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblHumanR.WorkerSurname)
+            </dd>
+
+            <dt class="col-sm-2">
+                <h7> Sertifikalar </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblHumanR.WorkerSertificate)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Performans Notu </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblHumanR.WorkPerformance)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Not </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblHumanR.Remarks)
+            </dd>
+        </dl>
+    </div>
+
+    <div>
+        <a asp-page="./HEdit" asp-route-id="@Model.TblHumanR.HResourceId">Düzenle</a> |
+        <a asp-page="./HDisplay">Listeye Dön</a>
+    </div>

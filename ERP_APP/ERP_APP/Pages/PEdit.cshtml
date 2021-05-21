@@ -1,0 +1,105 @@
+﻿@page
+@model ERP_APP.Pages.PEditModel
+
+@{
+    ViewData["Title"] = "PEdit";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<h1>Düzenle</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="TblProduction.ProductionId" />
+                <div class="form-group">
+                    
+
+                    <input type="hidden" asp-for="TblProduction.WarehouseId" class="form-control" />
+
+                    <span asp-validation-for="TblProduction.WarehouseId" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <h7> Ürün ID </h7>
+                    @Html.DisplayFor(model => model.TblProduction.ProductId)
+
+                    <input type="hidden" asp-for="TblProduction.ProductId" class="form-control" />
+
+                    <span asp-validation-for="TblProduction.ProductId" class="text-danger"></span>
+
+                </div>
+
+                <div class="form-group">
+                    <h7> Seri Numarası </h7>
+                    <input asp-for="TblProduction.SerialNum" class="form-control" />
+                    <span asp-validation-for="TblProduction.SerialNum" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Durumu </h7>
+                    <input asp-for="TblProduction.Status" class="form-control" />
+                    <span asp-validation-for="TblProduction.Status" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Son İşlem Tarihi </h7>
+                    <input asp-for="TblProduction.UpdateDate" class="form-control" />
+                    <span asp-validation-for="TblProduction.UpdateDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Üretim Tipi </h7>
+                    <input asp-for="TblProduction.ProductionType" class="form-control" />
+                    <span asp-validation-for="TblProduction.ProductionType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Kablaj Tipi </h7>
+                    <input asp-for="TblProduction.HarnessType" class="form-control" />
+                    <span asp-validation-for="TblProduction.HarnessType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Bildirimler </h7>
+                    <input asp-for="TblProduction.Notification" class="form-control" />
+                    <span asp-validation-for="TblProduction.Notification" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Nerede </h7>
+                    <input asp-for="TblProduction.Place" class="form-control" />
+                    <span asp-validation-for="TblProduction.Place" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <h7> Ara Denetim </h7>
+                    <input asp-for="TblProduction.IsOuality" class="form-control" />
+                    <span asp-validation-for="TblProduction.IsOuality" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Son denetim </h7>
+                    <input asp-for="TblProduction.IsFinal" class="form-control" />
+                    <span asp-validation-for="TblProduction.IsFinal" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Test </h7>
+                    <input asp-for="TblProduction.IsTest" class="form-control" />
+                    <span asp-validation-for="TblProduction.IsTest" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <h7> Not </h7>
+                    <input asp-for="TblProduction.Remarks" class="form-control" />
+                    <span asp-validation-for="TblProduction.Remarks" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Kaydet" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./PDisplay">Listeye Dön</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

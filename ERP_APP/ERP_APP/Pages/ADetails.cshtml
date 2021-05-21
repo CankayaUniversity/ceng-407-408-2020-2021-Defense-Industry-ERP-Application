@@ -1,0 +1,65 @@
+﻿@page
+@model ERP_APP.Pages.ADetailsModel
+
+@{
+    ViewData["Title"] = "ADetails";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<h1>Detaylar</h1>
+
+    <div>
+      
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <h7> Dönem </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblAccounting.aylar)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Maaş </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblAccounting.Salary)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Sigorta Gideri </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblAccounting.sigortalar)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Diğer Giderler </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblAccounting.digergider)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Vergi </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblAccounting.vergidurumu)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Toplam Fatura (Gelir) </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblAccounting.gelir)
+            </dd>
+            
+            <dt class="col-sm-2">
+                <h7> Açıklama </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblAccounting.Remarks)
+            </dd>
+
+        </dl>
+    </div>
+
+    <div>
+        <a asp-page="./AEdit" asp-route-id="@Model.TblAccounting.AccId">Düzenle</a> |
+        <a asp-page="./ADisplay">Listeye Dön</a>
+    </div>

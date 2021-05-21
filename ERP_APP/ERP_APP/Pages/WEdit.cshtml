@@ -1,0 +1,66 @@
+﻿@page
+@model ERP_APP.Pages.WEditModel
+
+@{
+    ViewData["Title"] = "WEdit";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<h1>Düzenle</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <h7> Ürün ID </h7>
+
+                @Html.DisplayFor(model => model.TblWarehouse.ProductId)
+    
+
+                <input type="hidden" asp-for="TblWarehouse.ProductId" class="form-control" />
+
+                <span asp-validation-for="TblWarehouse.ProductId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="TblWarehouse.WarehouseId" />
+            <div class="form-group">
+                <h7> Tarih </h7>
+                <input asp-for="TblWarehouse.Date" class="form-control" />
+                <span asp-validation-for="TblWarehouse.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Çıkış Tarihi </h7>
+                <input asp-for="TblWarehouse.GivenDate" class="form-control" />
+                <span asp-validation-for="TblWarehouse.GivenDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Verilen Adı </h7>
+                <input asp-for="TblWarehouse.ReceiverName" class="form-control" />
+                <span asp-validation-for="TblWarehouse.ReceiverName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Depo Yeri </h7>
+                <input asp-for="TblWarehouse.Place" class="form-control" />
+                <span asp-validation-for="TblWarehouse.Place" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Not </h7>
+                <input asp-for="TblWarehouse.Remarks" class="form-control" />
+                <span asp-validation-for="TblWarehouse.Remarks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./WDisplay">Listeye Dön</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

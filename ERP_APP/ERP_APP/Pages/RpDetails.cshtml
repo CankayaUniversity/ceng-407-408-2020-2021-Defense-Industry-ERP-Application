@@ -1,0 +1,87 @@
+﻿@page
+@model ERP_APP.Pages.RpDetailsModel
+
+@{
+    ViewData["Title"] = "RpDetails";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+
+
+    <div>
+     
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <h7> Ürün ID </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblRecordProduct.ProductId)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Stok Numarası </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblRecordProduct.StokNo)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Sipariş Numarası </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblRecordProduct.OrderNo)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> İş Emri Numarası </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblRecordProduct.WorkOrderNo)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Ürün Adeti </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblRecordProduct.Piece)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Eksik Ürün Adeti  </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblRecordProduct.RemainPiece)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Adet/Metre </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblRecordProduct.PieceType)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Tarih </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblRecordProduct.Date)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Şirket Adı </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblRecordProduct.CompanyName)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Tanım </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblRecordProduct.tanim)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Not </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblRecordProduct.Remarks)
+            </dd>
+        </dl>
+    </div>
+
+    <div>
+        <a asp-page="./RpEdit" asp-route-id="@Model.TblRecordProduct.ProductId">Düzenle</a> |
+        <a asp-page="./RpDisplay">Listeye Dön</a>
+    </div>

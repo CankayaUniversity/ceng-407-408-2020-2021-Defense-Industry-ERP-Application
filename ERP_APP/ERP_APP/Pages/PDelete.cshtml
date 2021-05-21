@@ -1,0 +1,136 @@
+﻿@page
+@model ERP_APP.Pages.PDeleteModel
+
+@{
+    ViewData["Title"] = "PDelete";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+
+    <h3>Silmek istediğinize emin misiniz?</h3>
+
+    <div>
+        
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <h7> Ürün ID </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.ProductId)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Stok Numarası </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.StokNo)
+            </dd>
+            <dt class="col-sm-2">
+                <h9> Sipariş Numarası </h9>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.OrderNo)
+            </dd>
+            <dt class="col-sm-2">
+                <h9> İş Emri Numarası </h9>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.WorkOrderNo)
+            </dd>
+            <dt class="col-sm-2">
+                <h9> Ürün Adeti </h9>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.Piece)
+            </dd>
+            <dt class="col-sm-2">
+                <h9> Şirket Adı </h9>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.CompanyName)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Seri Numarası </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.SerialNum)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Durumu </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Status)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Son İşlem Tarihi </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.UpdateDate)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Üretim Tipi </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.ProductionType)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Kablaj Tipi </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.HarnessType)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Bildirimler </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Notification)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Nerede </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Place)
+            </dd>
+
+
+
+            <dt class="col-sm-2">
+                <h7> Ara Denetim </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.IsOuality)
+            </dd>
+
+            <dt class="col-sm-2">
+                <h7> Son denetim </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.IsFinal)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Test </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.IsTest)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Not </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Remarks)
+            </dd>
+
+        </dl>
+       
+        <form method="post">
+            <a asp-page="PDisplay" class="btn btn-secondary btn-icon-split">
+
+                <span class="text">Listeye Dön</span>
+
+            </a>
+            <input type="hidden" asp-for="TblProduction.ProductionId" />
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            
+        </form>
+    </div>
+

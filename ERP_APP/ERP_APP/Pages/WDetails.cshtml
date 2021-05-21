@@ -1,0 +1,79 @@
+﻿@page
+@model ERP_APP.Pages.WDetailsModel
+
+@{
+    ViewData["Title"] = "WDetails";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<div>
+  
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <h7> Ürün ID </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Product.ProductId)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Stok Numarası </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Product.StokNo)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Sipariş Numarası </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Product.OrderNo)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> İş Emri Numarası </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Product.WorkOrderNo)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Ürün Adeti </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Product.Piece)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Tarih </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Date)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Çıkış Tarihi </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.GivenDate)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Verilen Adı </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.ReceiverName)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Depo Yeri </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Place)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Not </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Remarks)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-page="./WEdit" asp-route-id="@Model.TblWarehouse.WarehouseId">Düzenle</a> |
+    <a asp-page="./WDisplay">Listeye Dön</a>
+</div>

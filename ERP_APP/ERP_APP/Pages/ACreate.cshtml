@@ -1,0 +1,76 @@
+﻿@page
+@model ERP_APP.Pages.ACreateModel
+
+@{
+    ViewData["Title"] = "ACreate";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+<h1>Muhasebe </h1>
+
+    
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+
+                    <input type="hidden" asp-for="TblAccountings.HResourceId" class="form-control" />
+                    <select asp-for="TblAccountings.HResourceId" class="form-control" asp-items="ViewBag.HResourceId"></select>
+                </div>
+                <div class="form-group">
+                    <h9> Dönem </h9>
+                    <input asp-for="TblAccountings.aylar" class="form-control" />
+                    <span asp-validation-for="TblAccountings.aylar" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Maaş </h7>
+                    <input asp-for="TblAccountings.Salary" class="form-control" />
+                    <span asp-validation-for="TblAccountings.Salary" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <h9> Sigorta Gideri </h9>
+                    <input asp-for="TblAccountings.sigortalar" class="form-control" />
+                    <span asp-validation-for="TblAccountings.sigortalar" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Diğer Giderler </h9>
+                    <input asp-for="TblAccountings.digergider" class="form-control" />
+                    <span asp-validation-for="TblAccountings.digergider" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Vergi </h9>
+                    <input asp-for="TblAccountings.vergidurumu"  type="checkbox" value="✔" />
+                 
+
+                    <span asp-validation-for="TblAccountings.vergidurumu" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Toplam Fatura(Gelir) </h9>
+                    <input asp-for="TblAccountings.gelir" class="form-control" />
+                    <span asp-validation-for="TblAccountings.gelir" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Açıklama </h7>
+                    <input asp-for="TblAccountings.Remarks" class="form-control" />
+                    <span asp-validation-for="TblAccountings.Remarks" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <a asp-page="ADisplay" class="btn btn-secondary btn-icon-split">
+
+                        <span class="text">Listeye Dön</span>
+
+                    </a>
+                    <input type="submit" value="Oluştur" class="btn btn-primary" />
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+   
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

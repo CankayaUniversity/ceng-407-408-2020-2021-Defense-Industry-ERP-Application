@@ -1,0 +1,66 @@
+﻿@page
+@model ERP_APP.Pages.HEditModel
+
+@{
+    ViewData["Title"] = "HEdit";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<h1>Düzenle</h1>
+
+ 
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="TblHumanR.HResourceId" />
+                <div class="form-group">
+                    <h7> Çalışan ID </h7>
+                    <input asp-for="TblHumanR.HResourceId" class="form-control" />
+                    <span asp-validation-for="TblHumanR.HResourceId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Ad </h7>
+                    <input asp-for="TblHumanR.WorkerName" class="form-control" />
+                    <span asp-validation-for="TblHumanR.WorkerName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Soyad </h7>
+                    <input asp-for="TblHumanR.WorkerSurname" class="form-control" />
+                    <span asp-validation-for="TblHumanR.WorkerSurname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TblHumanR.WorkerId" class="control-label"></label>
+                    <input asp-for="TblHumanR.WorkerId" class="form-control" />
+                    <span asp-validation-for="TblHumanR.WorkerId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Sertifikalar </h7>
+                    <input asp-for="TblHumanR.WorkerSertificate" class="form-control" />
+                    <span asp-validation-for="TblHumanR.WorkerSertificate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Performans Notu </h7>
+                    <input asp-for="TblHumanR.WorkPerformance" class="form-control" />
+                    <span asp-validation-for="TblHumanR.WorkPerformance" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Not </h7>
+                    <input asp-for="TblHumanR.Remarks" class="form-control" />
+                    <span asp-validation-for="TblHumanR.Remarks" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./HDisplay">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

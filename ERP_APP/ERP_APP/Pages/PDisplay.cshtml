@@ -1,0 +1,196 @@
+﻿@page
+@model ERP_APP.Pages.PDisplayModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+@if (@Model.UserRole == "Admin" || @Model.UserRole == "Üretim")
+{
+    
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Üretim Planlama</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+
+                <thead>
+                    <tr>
+                        <th>
+                            <h9> Ürün ID </h9>
+                        </th>
+
+                        <th>
+                            <h9> Stok Numarası </h9>
+                        </th>
+                        <th>
+                            <h9> Sipariş Numarası </h9>
+                        </th>
+                        <th>
+                            <h9> İş Emri Numarası </h9>
+                        </th>
+                        <th>
+                            <h9> Ürün Adeti </h9>
+                        </th>
+                        <th>
+                            <h9> Şirket Adı </h9>
+                        </th>
+                        <th>
+                            <h9> Seri Numarası </h9>
+                        </th>
+                        <th>
+                            <h9> Durumu </h9>
+                        </th>
+                        <th>
+                            <h9> Son İşlem Tarihi </h9>
+                        </th>
+                        <th>
+                            <h9> Üretim Tipi </h9>
+                        </th>
+                        <th>
+                            <h9> Kablaj Tipi </h9>
+                        </th>
+                        <th>
+                            <h9> Bildirimler </h9>
+                        </th>
+                        <th>
+                            <h9> Nerede </h9>
+                        </th>
+
+                        <th>
+                            <h9> Ara Denetim </h9>
+                        </th>
+                        <th>
+                            <h9> Son denetim </h9>
+                        </th>
+                        <th>
+                            <h9> Test </h9>
+                        </th>
+                        <th>
+
+                            <h9> Not </h9>
+
+                        </th>
+
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.TblProduction)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.ProductId)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.StokNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.OrderNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.WorkOrderNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Piece)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.CompanyName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SerialNum)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UpdateDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductionType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HarnessType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notification)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Place)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsOuality)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsFinal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsTest)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Remarks)
+                        </td>
+
+                        @if (@Model.UserRole == "Admin" || @Model.UserRole == "Üretim" || @Model.UserRole == "Test" || @Model.UserRole == "Kalite")
+                        {
+
+                            <td>
+                                <a asp-page="./PEdit" asp-route-id="@item.ProductionId" class="btn btn-warning btn-icon-split">
+
+                                    <span class="text">Düzenle</span>
+                                </a>
+                            </td>
+
+                           
+                        }
+                        <td>
+                            <a asp-page="./PDetails" asp-route-id="@item.ProductionId" class="btn btn-info btn-icon-split">
+
+                                <span class="text">Detaylar</span>
+                            </a>
+                        </td>
+                        @if (@Model.UserRole == "Admin" || @Model.UserRole == "Üretim" || @Model.UserRole == "Test" || @Model.UserRole == "Kalite")
+                        {
+
+                          
+                            <td>
+                                <a asp-page="./PDelete" asp-route-id="@item.ProductionId" class="btn btn-danger btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                    <span class="text">Sil</span>
+                                </a>
+                            </td>
+                        }
+
+                        @if (@Model.UserRole == "Admin" || @Model.UserRole == "Sevkiyat")
+                        {
+
+
+                             <td>
+                                <a asp-page="./SCreate" asp-route-id="@item.ProductId" class="btn btn-secondary btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                    <span class="text">Sevk Et</span>
+
+                                </a>
+
+                        
+                             </td>
+                        }
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

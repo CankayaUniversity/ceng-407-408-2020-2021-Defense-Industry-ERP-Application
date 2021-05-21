@@ -1,0 +1,105 @@
+﻿@page
+@model ERP_APP.Pages.SEditModel
+
+@{
+    ViewData["Title"] = "SEdit";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<h1>Düzenle</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <h7> Ürün ID </h7>
+                @Html.DisplayFor(model => model.TblShipment.ProductId)
+
+
+                <input type="hidden" asp-for="TblShipment.ProductId" class="form-control" />
+
+                <span asp-validation-for="TblShipment.ProductId" class="text-danger"></span>
+            </div>
+            <input asp-for="TblShipment.ShipmentId" class="form-control" />
+
+            <span asp-validation-for="TblShipment.ShipmentId" class="text-danger"></span>
+            <div class="form-group">
+                <h7> Tarih </h7>
+                <input asp-for="TblShipment.Date" class="form-control" />
+                <span asp-validation-for="TblShipment.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Fatura Numarası </h7>
+                <input asp-for="TblShipment.InvoiceNo" class="form-control" />
+                <span asp-validation-for="TblShipment.InvoiceNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Seri No </h7>
+                <input asp-for="TblShipment.seriNo" class="form-control" />
+                <span asp-validation-for="TblShipment.seriNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Doküman Revizyonları </h7>
+                <input asp-for="TblShipment.dokRev" class="form-control" />
+
+                <span asp-validation-for="TblShipment.dokRev" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Göz Denetimi </h7>
+                <select asp-for="TblShipment.eyes" class="control-label">
+                    >
+                    <option value="✔">✔ </option>
+                    <option value=" ">Yapılmadı</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <h7> Elektriksel Denetim </h7>
+               
+                <select asp-for="TblShipment.elektrik" class="control-label">
+                    >
+                    <option value="✔">✔ </option>
+                    <option value=" ">Yapılmadı</option>
+
+                </select>
+
+                
+            </div>
+            <div class="form-group">
+                <h7> Paketleme / Sevkiyat </h7>
+               
+                <select asp-for="TblShipment.paket" class="control-label">
+                    >
+                    <option value="✔">✔ </option>
+                    <option value=" ">Yapılmadı</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <h7> Adet </h7>
+                <input asp-for="TblShipment.Piece" class="form-control" />
+                <span asp-validation-for="TblShipment.Piece" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Not </h7>
+                <input asp-for="TblShipment.Remarks" class="form-control" />
+                <span asp-validation-for="TblShipment.Remarks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./SDisplay">Listeye Dön</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

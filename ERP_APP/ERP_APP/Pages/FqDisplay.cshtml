@@ -1,0 +1,116 @@
+﻿@page
+@model ERP_APP.Pages.FqDisplayModel
+
+@{
+    ViewData["Title"] = "FqDisplay";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+@if (@Model.UserRole == "Admin" || @Model.UserRole == "Kalite")
+{
+    
+}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h3 class="m-0 font-weight-bold text-primary">Giriş Kalite</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                <h9> Ürün ID </h9>
+                            </th>
+                            
+                            <th>
+                                <h9> Parça Numarası </h9>
+                            </th>
+                            <th>
+                                <h9> NSN </h9>
+                            </th>
+                            <th>
+                                <h9> Ürün Sayısı</h9>
+                            </th>
+                            <th>
+                                <h9> Eksik Ürün Sayısı</h9>
+                            </th>
+                            <th>
+                                <h9> Adet/Metre </h9>
+                            </th>
+                            <th>
+                                <h9> Lot Batch Numarası </h9>
+                            </th>
+                            <th>
+                                <h9> Not </h9>
+                            </th>
+
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.TblFirstQuality)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Product.ProductId)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PartNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nsn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PartPiece)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PartRemainPiece)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PartPieceType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LotBatchNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Remark)
+                            </td>
+
+                            @if (@Model.UserRole == "Admin" || @Model.UserRole == "Kalite")
+                            {
+                                <td>
+                                    <a asp-page="./FqEdit" asp-route-id="@item.PartId" class="btn btn-warning btn-icon-split">
+
+                                        <span class="text">Düzenle</span>
+                                    </a>
+                                </td>
+                           
+                            }
+                            <td>
+                                <a asp-page="./FqDetails" asp-route-id="@item.PartId" class="btn btn-info btn-icon-split">
+
+                                    <span class="text">Detaylar</span>
+                                </a>
+                            </td>
+                            @if (@Model.UserRole == "Admin" || @Model.UserRole == "Kalite")
+                            {
+                               
+
+                                <td>
+                                    <a asp-page="./FqDelete" asp-route-id="@item.PartId" class="btn btn-danger btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span class="text">Sil</span>
+                                    </a>
+                                </td>
+
+                            }
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

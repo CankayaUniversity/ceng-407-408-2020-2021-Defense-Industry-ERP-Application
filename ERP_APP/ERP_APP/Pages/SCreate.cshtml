@@ -1,0 +1,92 @@
+﻿@page
+@model ERP_APP.Pages.SCreateModel
+
+@{
+    ViewData["Title"] = "SCreate";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<h1>Sevkiyat</h1>
+
+ 
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <h7> Ürün ID </h7>
+
+                    @Html.DisplayFor(model => model.TblProductions.ProductId)
+                    @Html.DisplayFor(model => model.S.ProductId)
+
+                    <input type="hidden" name="pID2" asp-for="TblProductions.ProductId" class="form-control" />
+
+                    <span asp-validation-for="S.ProductId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Tarih </h7>
+                    <input asp-for="S.Date" class="form-control" />
+                    <span asp-validation-for="S.Date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Fatura Numarası </h7>
+                    <input asp-for="S.InvoiceNo" class="form-control" />
+                    <span asp-validation-for="S.InvoiceNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Seri No </h7>
+                    <input asp-for="S.seriNo" class="form-control" />
+                    <span asp-validation-for="S.seriNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Doküman Revizyonları </h7>
+                    <input asp-for="S.dokRev" class="form-control" />
+                    <span asp-validation-for="S.dokRev" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Göz Denetimi </h7>
+                    <input asp-for="S.eyes" type="checkbox" value="✔" />
+       
+                    <span asp-validation-for="S.eyes" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Elektriksel Denetim </h7>
+                    <input asp-for="S.elektrik" type="checkbox" value="✔" />
+                    
+                    <span asp-validation-for="S.elektrik" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Paketleme / Sevkiyat </h7>
+                    <input asp-for="S.paket" type="checkbox" value="✔" />
+                 
+                    <span asp-validation-for="S.paket" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Adet </h7>
+                    <input asp-for="S.Piece" class="form-control" />
+                    <span asp-validation-for="S.Piece" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Not </h7>
+                    <input asp-for="S.Remarks" class="form-control" />
+                    <span asp-validation-for="S.Remarks" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <a asp-page="PDisplay" class="btn btn-secondary btn-icon-split">
+
+                        <span class="text">Listeye Dön</span>
+
+                    </a>
+                    <input type="submit" value="Oluştur" class="btn btn-primary" />
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

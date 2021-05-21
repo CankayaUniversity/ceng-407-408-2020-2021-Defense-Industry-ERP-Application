@@ -1,0 +1,88 @@
+﻿@page
+@model ERP_APP.Pages.WDeleteModel
+
+@{
+    ViewData["Title"] = "WDelete";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <h7> Ürün ID </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Product.ProductId)
+        </dd>
+        <dt class="col-sm-2">
+            <h9> Stok Numarası </h9>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Product.StokNo)
+        </dd>
+        <dt class="col-sm-2">
+            <h9> Sipariş Numarası </h9>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Product.OrderNo)
+        </dd>
+        <dt class="col-sm-2">
+            <h9> İş Emri Numarası </h9>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Product.WorkOrderNo)
+        </dd>
+        <dt class="col-sm-2">
+            <h9> Ürün Adeti </h9>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Product.Piece)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Tarih </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Date)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Çıkış Tarihi </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.GivenDate)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Verilen Adı </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.ReceiverName)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Depo Yeri </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Place)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Not </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblWarehouse.Remarks)
+        </dd>
+
+    </dl>
+    
+    <form method="post">
+        <a asp-page="WDisplay" class="btn btn-secondary btn-icon-split">
+
+            <span class="text">Listeye Dön</span>
+
+        </a>
+        <input type="hidden" asp-for="TblWarehouse.WarehouseId" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+       
+    </form>
+</div>

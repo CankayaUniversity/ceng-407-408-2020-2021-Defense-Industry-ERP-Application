@@ -1,0 +1,96 @@
+﻿@page
+@model ERP_APP.Pages.AccDisplayModel
+
+@{
+    ViewData["Title"] = "Kullanıcılar";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+@if (@Model.UserRole == "Admin")
+{
+   
+<p>
+  
+    <a asp-page="AccCreate" class="btn btn-success btn-icon-split">
+
+        <span class="text">Kullanıcı Oluştur</span>
+    </a>
+</p>
+
+                                        <!-- DataTales Example -->
+                                        <div class="card shadow mb-4">
+                                            <div class="card-header py-3">
+                                                <h3 class="m-0 font-weight-bold text-primary">Kullanıcılar</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>
+                                                                     <h9> Ad Soyad</h9>
+                                                                </th>
+                                                                <th>
+                                                                    <h9> Kullanıcı Adı </h9>
+                                                                </th>
+                                                                <th>
+                                                                    <h9> Şifre </h9>
+                                                                </th>
+                                                                <th>
+                                                                    <h9> Görev </h9>
+                                                                </th>
+                                                               
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model.TblAcc)
+                                                            {
+                                                            <tr>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.UserName)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.AccName)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.UserPass)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.UserRole)
+                                                                </td>
+                                                                
+                                                                   
+                                                                <td>
+                                                                    <a asp-page="./AccEdit" asp-route-id="@item.UserId" class="btn btn-warning btn-icon-split">
+
+                                                                        <span class="text">Düzenle</span>
+                                                                    </a>
+                                                                </td>
+                                                                <td>
+                                                                    <a asp-page="./AccDetails" asp-route-id="@item.UserId" class="btn btn-info btn-icon-split">
+
+                                                                        <span class="text">Detaylar</span>
+                                                                    </a>
+                                                                </td>
+                                                                <td>
+                                                                    <a asp-page="./AccDelete" asp-route-id="@item.UserId" class="btn btn-danger btn-icon-split">
+                                                                        <span class="icon text-white-50">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </span>
+                                                                        <span class="text">Sil</span>
+                                                                    </a>
+                                                                </td>
+                                                                
+                                                            </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    
+                        
+        
+
+}

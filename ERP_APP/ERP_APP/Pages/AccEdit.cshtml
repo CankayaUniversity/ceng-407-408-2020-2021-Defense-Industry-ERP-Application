@@ -1,0 +1,67 @@
+﻿@page
+@model ERP_APP.Pages.AccEditModel
+
+@{
+    ViewData["Title"] = "AccEdit";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+@if (@Model.UserRole == "Admin")
+{
+    <h1>Edit</h1>
+
+    <h4>TblAcc</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="TblAcc.UserId" />
+                <div class="form-group">
+                    <h9> Kullanıcı Adı </h9>
+                    <input asp-for="TblAcc.UserName" class="form-control" />
+                    <span asp-validation-for="TblAcc.UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Ad Soyad</h9>
+                    <input asp-for="TblAcc.AccName" class="form-control" />
+                    <span asp-validation-for="TblAcc.AccName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Şifre </h9>
+                    <input asp-for="TblAcc.UserPass" class="form-control" />
+                    <span asp-validation-for="TblAcc.UserPass" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Görev </h9>
+                    <select asp-for="TblAcc.UserRole" class="control-label">
+                        >
+                        <option value="Admin">Admin</option>
+                        <option value="Kalite">Kalite</option>
+                        <option value="Üretim">Üretim</option>
+                        <option value="Sevkiyat">Sevkiyat</option>
+                        <option value="Depo">Depo</option>
+                        <option value="İnsanKaynakları">İnsan Kaynakları</option>
+                        <option value="Muhasebe">Muhasebe</option>
+                        <option value="Test">Test</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <a asp-page="./AccDisplay" class="btn btn-secondary btn-icon-split">
+
+                        <span class="text">Listeye Dön</span>
+
+                    </a>
+                    <input type="submit" value="Kaydet" class="btn btn-primary" />
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./AccDisplay">Listeye Dön</a>
+    </div>
+}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

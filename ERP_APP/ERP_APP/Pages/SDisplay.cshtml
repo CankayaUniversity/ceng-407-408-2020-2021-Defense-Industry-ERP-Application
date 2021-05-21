@@ -1,0 +1,161 @@
+﻿@page
+@model ERP_APP.Pages.SDisplayModel
+
+@{
+    ViewData["Title"] = "SDisplay";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Sevkiyat</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                <thead>
+                    <tr>
+                        <th>
+                            <h9> Ürün ID </h9>
+                        </th>
+                        <th>
+                            <h9> Stok Numarası </h9>
+                        </th>
+                        <th>
+                            <h9> Sipariş Numarası </h9>
+                        </th>
+                        <th>
+                            <h9> İş Emri Numarası </h9>
+                        </th>
+
+                        <th>
+                            <h9> Tarih </h9>
+                        </th>
+                        <th>
+                            <h9> Tanım </h9>
+                        </th>
+                        <th>
+                            <h9> Müşteri Adı </h9>
+                        </th>
+                        <th>
+                            <h9> Fatura Numarası </h9>
+                        </th>
+                        <th>
+                            <h9> Seri No </h9>
+                        </th>
+                        <th>
+                            <h9> Doküman Revizyonları </h9>
+                        </th>
+                        <th>
+                            <h9> Göz Denetimi </h9>
+                        </th>
+                        <th>
+                            <h9> Elektriksel Denetim </h9>
+                        </th>
+                        <th>
+                            <h9> Paketleme / Sevkiyat </h9>
+                        </th>
+
+                        <th>
+                            <h9> Adet </h9>
+                        </th>
+                        <th>
+                            <h9> Not </h9>
+                        </th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.TblShipment)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.ProductId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.StokNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.OrderNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.WorkOrderNo)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.tanim)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.CompanyName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvoiceNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.seriNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dokRev)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.eyes)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.elektrik)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.paket)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Piece)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Remarks)
+                        </td>
+
+
+                        @if (@Model.UserRole == "Admin" || @Model.UserRole == "Kalite" || @Model.UserRole == "Depo")
+                        {
+
+                            <td>
+                                <a asp-page="./SEdit" asp-route-id="@item.ShipmentId" class="btn btn-warning btn-icon-split">
+
+                                    <span class="text">Düzenle</span>
+                                </a>
+                            </td>
+
+
+                        }
+                        <td>
+                            <a asp-page="./SDetails" asp-route-id="@item.ShipmentId" class="btn btn-info btn-icon-split">
+
+                                <span class="text">Detaylar</span>
+                            </a>
+                        </td>
+                        @if (@Model.UserRole == "Admin" || @Model.UserRole == "Kalite" || @Model.UserRole == "Depo")
+                        {
+
+
+                            <td>
+                                <a asp-page="./SDelete" asp-route-id="@item.ShipmentId" class="btn btn-danger btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                    <span class="text">Sil</span>
+                                </a>
+                            </td>
+                        }
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

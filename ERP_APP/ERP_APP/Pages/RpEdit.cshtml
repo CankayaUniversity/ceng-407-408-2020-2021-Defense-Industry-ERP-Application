@@ -1,0 +1,90 @@
+﻿@page
+@model ERP_APP.Pages.RpEditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<h1>Düzenle</h1>
+
+  
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div class="form-group">
+                    <h7> Ürün ID </h7>
+                    @Html.DisplayFor(model => model.TblRecordProduct.ProductId)
+
+
+                    <input type="hidden" asp-for="TblRecordProduct.ProductId" class="form-control" />
+
+                    <span asp-validation-for="TblRecordProduct.ProductId" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <h9> Stok Numarası </h9>
+                    <input asp-for="TblRecordProduct.StokNo" class="form-control" />
+                    <span asp-validation-for="TblRecordProduct.StokNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Sipariş Numarası </h7>
+                    <input asp-for="TblRecordProduct.OrderNo" class="form-control" />
+                    <span asp-validation-for="TblRecordProduct.OrderNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> İş Emri Numarası </h7>
+                    <input asp-for="TblRecordProduct.WorkOrderNo" class="form-control" />
+                    <span asp-validation-for="TblRecordProduct.WorkOrderNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Ürün Adeti </h7>
+                    <input asp-for="TblRecordProduct.Piece" class="form-control" />
+                    <span asp-validation-for="TblRecordProduct.Piece" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Eksik Ürün Adeti  </h7>
+                    <input asp-for="TblRecordProduct.RemainPiece" class="form-control" />
+                    <span asp-validation-for="TblRecordProduct.RemainPiece" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Adet/Metre </h7>
+                    <input asp-for="TblRecordProduct.PieceType" class="form-control" />
+                    <span asp-validation-for="TblRecordProduct.PieceType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Tarih </h7>
+                    <input asp-for="TblRecordProduct.Date" class="form-control" />
+                    <span asp-validation-for="TblRecordProduct.Date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Şirket Adı </h7>
+                    <input asp-for="TblRecordProduct.CompanyName" class="form-control" />
+                    <span asp-validation-for="TblRecordProduct.CompanyName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Tanım </h7>
+                    <input asp-for="TblRecordProduct.tanim" class="form-control" />
+                    <span asp-validation-for="TblRecordProduct.tanim" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Not </h7>
+                    <input asp-for="TblRecordProduct.Remarks" class="form-control" />
+                    <span asp-validation-for="TblRecordProduct.Remarks" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Kaydet" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./RpDisplay">Listeye Dön</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

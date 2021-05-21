@@ -1,0 +1,70 @@
+﻿@page
+@model ERP_APP.Pages.FqDetailsModel
+
+@{
+    ViewData["Title"] = "FqDetails";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+    
+
+    <div>
+  
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <h7> Ürün ID </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblFirstQuality.Product.ProductId)
+            </dd>
+            
+            <dt class="col-sm-2">
+                <h7> Parça Numarası </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblFirstQuality.PartNo)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> NSN </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblFirstQuality.Nsn)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Gelen Ürün Sayısı</h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblFirstQuality.PartPiece)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Eksik Ürün Sayısı </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblFirstQuality.PartRemainPiece)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Adet/Metre </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblFirstQuality.PartPieceType)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Lot Batch Numarası </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblFirstQuality.LotBatchNo)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Not </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblFirstQuality.Remark)
+            </dd>
+        </dl>
+    </div>
+
+    <div>
+        <a asp-page="./FqEdit" asp-route-id="@Model.TblFirstQuality.PartId">Düzenle</a> |
+        <a asp-page="./FqDisplay">Listeye Dön</a>
+    </div>

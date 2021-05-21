@@ -1,0 +1,68 @@
+﻿@page
+@model ERP_APP.Pages.WCreateModel
+
+@{
+    ViewData["Title"] = "WCreate";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<h1>Depo</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <h7> Ürün ID </h7>
+
+                @Html.DisplayFor(model => model.TblRecordProducts.ProductId)
+                @Html.DisplayFor(model => model.Wh.ProductId)
+
+                <input type="hidden" name="pID" asp-for="TblRecordProducts.ProductId" class="form-control" />
+
+                <span asp-validation-for="Wh.ProductId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Tarih </h7>
+                <input asp-for="Wh.Date" class="form-control" />
+                <span asp-validation-for="Wh.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <input type="hidden" asp-for="Wh.GivenDate" class="form-control" />
+                <span asp-validation-for="Wh.GivenDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               
+                <input type="hidden" asp-for="Wh.ReceiverName" class="form-control" />
+                <span asp-validation-for="Wh.ReceiverName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Depo Yeri </h7>
+                <input asp-for="Wh.Place" class="form-control" />
+                <span asp-validation-for="Wh.Place" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h7> Not </h7>
+                <input asp-for="Wh.Remarks" class="form-control" />
+                <span asp-validation-for="Wh.Remarks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-page="RpDisplay" class="btn btn-secondary btn-icon-split">
+
+                    <span class="text">Listeye Dön</span>
+
+                </a>
+                <input type="submit" value="Oluştur" class="btn btn-primary" />
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

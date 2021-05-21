@@ -1,0 +1,77 @@
+﻿@page
+@model ERP_APP.Pages.AEditModel
+
+@{
+    ViewData["Title"] = "AEdit";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<h1>Düzenle</h1>
+
+  
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                <input type="hidden" asp-for="TblAccounting.AccId" />
+                <div class="form-group">
+                    <h9> Dönem </h9>
+                    @Html.DisplayFor(model => model.TblAccounting.aylar)
+                    <input type="hidden" asp-for="TblAccounting.aylar" class="form-control" />
+                    <span asp-validation-for="TblAccounting.aylar" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Maaş </h7>
+                    <input asp-for="TblAccounting.Salary" class="form-control" />
+                    <span asp-validation-for="TblAccounting.Salary" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <h9> Sigorta Gideri </h9>
+                    <input asp-for="TblAccounting.sigortalar" class="form-control" />
+                    <span asp-validation-for="TblAccounting.sigortalar" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Diğer Giderler </h9>
+                    <input asp-for="TblAccounting.digergider" class="form-control" />
+                    <span asp-validation-for="TblAccounting.digergider" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Vergi </h9>
+                   
+
+                        <select asp-for="TblAccounting.vergidurumu" class="control-label">
+                            >
+                            <option value="✔">✔ </option>
+                            <option value=" ">Yapılmadı</option>
+
+                        </select>
+
+                  
+                </div>
+                <div class="form-group">
+                    <h9> Toplam Fatura(Gelir) </h9>
+                    <input asp-for="TblAccounting.gelir" class="form-control" />
+                    <span asp-validation-for="TblAccounting.gelir" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h7> Açıklama </h7>
+                    <input asp-for="TblAccounting.Remarks" class="form-control" />
+                    <span asp-validation-for="TblAccounting.Remarks" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./ADisplay">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

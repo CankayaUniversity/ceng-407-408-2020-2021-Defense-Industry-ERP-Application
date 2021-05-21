@@ -1,0 +1,128 @@
+﻿@page
+@model ERP_APP.Pages.ADisplayModel
+
+@{
+    ViewData["Title"] = "ADisplay";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+@if (@Model.UserRole == "Admin" || @Model.UserRole == "Muhasebe")
+{
+<p>
+    @if (@Model.UserRole == "Admin")
+    {
+        <a asp-page="ACreate" class="btn btn-success btn-icon-split">
+
+            <span class="text">Yeni Yıl Ekle</span>
+        </a>
+
+    }
+</p>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h3 class="m-0 font-weight-bold text-primary">Muhasebe </h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <h9> Dönem </h9>
+                                    </th>
+                                    <th>
+                                        <h9> Maaş </h9>
+                                    </th>
+                                    <th>
+                                        <h9> Sigorta Gideri </h9>
+                                    </th>
+                                    <th>
+                                        <h9> Diğer Giderler </h9>
+                                    </th>
+                                    <th>
+                                        <h9> Vergi </h9>
+                                    </th>
+                                    
+                                    <th>
+                                        <h9> Toplam Fatura(Gelir) </h9>
+                                    </th>
+
+                                    <th>
+
+                                        <h9> Açıklama </h9>
+                                    </th>
+                                    <th>
+                                        <h9> Toplam Gider </h9>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.TblAccounting)
+                                {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.aylar)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Salary)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.sigortalar)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.digergider)
+
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.vergidurumu)
+
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.gelir)
+
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Remarks)
+
+                                    </td>
+                                    <td>
+                                        <div>
+                                            @Model.toplam
+                                        </div>
+                                      
+
+                                    </td>
+
+                                    <td>
+                                        <a asp-page="./AEdit" asp-route-id="@item.AccId" class="btn btn-warning btn-icon-split">
+
+                                            <span class="text">Düzenle</span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a asp-page="./ADetails" asp-route-id="@item.AccId" class="btn btn-info btn-icon-split">
+
+                                            <span class="text">Detaylar</span>
+                                        </a>
+                                    </td>
+
+
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+            </div>
+        </div>
+    </div>
+    
+
+
+}
+

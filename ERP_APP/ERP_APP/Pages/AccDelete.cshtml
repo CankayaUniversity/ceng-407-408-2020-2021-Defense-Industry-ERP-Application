@@ -1,0 +1,55 @@
+﻿@page
+@model ERP_APP.Pages.AccDeleteModel
+
+@{
+    ViewData["Title"] = "AccDelete";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+@if (@Model.UserRole == "Admin")
+{
+ 
+
+    <h3>Silmek istediğinize emin misiniz?</h3>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <h7> Ad Soyad </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblAcc.UserName)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Kullanıcı Adı </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblAcc.AccName)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Şifre </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblAcc.UserPass)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Görev </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblAcc.UserRole)
+            </dd>
+        </dl>
+
+        <form method="post">
+            <a asp-page="./AccDisplay" class="btn btn-secondary btn-icon-split">
+
+                <span class="text">Listeye Dön</span>
+
+            </a>
+            <input type="hidden" asp-for="TblAcc.UserId" />
+            <input type="submit" value="Sil" class="btn btn-danger" />
+
+
+
+        </form>
+    </div>
+}

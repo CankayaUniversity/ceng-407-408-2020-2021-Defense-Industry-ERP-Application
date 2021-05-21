@@ -1,0 +1,71 @@
+﻿@page
+@model ERP_APP.Pages.FqEditModel
+
+@{
+    ViewData["Title"] = "FqEdit";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+    <h1>Düzenle</h1>
+
+  
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <h9> Ürün ID </h9>
+                    <select asp-for="TblFirstQuality.ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                    <span asp-validation-for="TblFirstQuality.ProductId" class="text-danger"></span>
+                </div>
+                <input type="hidden" asp-for="TblFirstQuality.PartId" />
+                <div class="form-group">
+                    <h9> Parça Numarası </h9>
+                    <input asp-for="TblFirstQuality.PartNo" class="form-control" />
+                    <span asp-validation-for="TblFirstQuality.PartNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> NSN </h9>
+                    <input asp-for="TblFirstQuality.Nsn" class="form-control" />
+                    <span asp-validation-for="TblFirstQuality.Nsn" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Ürün Sayısı</h9>
+                    <input asp-for="TblFirstQuality.PartPiece" class="form-control" />
+                    <span asp-validation-for="TblFirstQuality.PartPiece" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Eksik Ürün Sayısı</h9>
+                    <input asp-for="TblFirstQuality.PartRemainPiece" class="form-control" />
+                    <span asp-validation-for="TblFirstQuality.PartRemainPiece" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Adet/Metre </h9>
+                    <input asp-for="TblFirstQuality.PartPieceType" class="form-control" />
+                    <span asp-validation-for="TblFirstQuality.PartPieceType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Lot Batch Numarası </h9>
+                    <input asp-for="TblFirstQuality.LotBatchNo" class="form-control" />
+                    <span asp-validation-for="TblFirstQuality.LotBatchNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h9> Not </h9>
+                    <input asp-for="TblFirstQuality.Remark" class="form-control" />
+                    <span asp-validation-for="TblFirstQuality.Remark" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Kaydet" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./FqDisplay">Listeye Dön</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

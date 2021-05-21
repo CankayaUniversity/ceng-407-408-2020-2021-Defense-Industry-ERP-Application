@@ -1,0 +1,165 @@
+﻿@page
+@model ERP_APP.Pages.RpDisplayModel
+
+@{
+    ViewData["Title"] = "RpDisplay";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h3 class="m-0 font-weight-bold text-primary">Ürün Kayıt</h3>
+
+        
+        @if (@Model.UserRole == "Admin" || @Model.UserRole == "Kalite" || @Model.UserRole == "Depo")
+        {
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800"></h1>
+        <a asp-page="RpCreate" class="btn btn-success btn-icon-split">
+
+            <span class="text">Ürün Ekle</span>
+        </a>
+    </div>
+        }
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            <h9> Ürün ID </h9>
+                        </th>
+                        <th>
+                            <h9> Stok Numarası </h9>
+                        </th>
+                        <th>
+                            <h9> Sipariş Numarası </h9>
+                        </th>
+                        <th>
+                            <h9> İş Emri Numarası </h9>
+                        </th>
+                        <th>
+                            <h9> Ürün Adeti </h9>
+                        </th>
+                        <th>
+                            <h9> Eksik Ürün Adeti  </h9>
+                        </th>
+                        <th>
+                            <h9> Adet/Metre </h9>
+                        </th>
+                        <th>
+                            <h9> Tarih </h9>
+                        </th>
+                        <th>
+                            <h9> Şirket Adı </h9>
+                        </th>
+                        <th>
+                            <h9> Tanım </h9>
+                        </th>
+                        <th>
+                            <h9> Not </h9>
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.TblRecordProduct)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StokNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WorkOrderNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Piece)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RemainPiece)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PieceType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CompanyName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tanim)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Remarks)
+                        </td>
+
+                        @if (@Model.UserRole == "Admin" || @Model.UserRole == "Kalite" || @Model.UserRole == "Depo")
+                        {
+                            <td>
+                                <a asp-page="./RpEdit" asp-route-id="@item.ProductId" class="btn btn-warning btn-icon-split">
+
+                                    <span class="text">Düzenle</span>
+                                </a>
+                            </td>
+
+
+                        }
+                        <td>
+                            <a asp-page="./RpDetails" asp-route-id="@item.ProductId" class="btn btn-info btn-icon-split">
+
+                                <span class="text">Detaylar</span>
+                            </a>
+                        </td>
+                        @if (@Model.UserRole == "Admin" || @Model.UserRole == "Kalite" || @Model.UserRole == "Depo")
+                        {
+                            <td>
+                                <a asp-page="./RpDelete" asp-route-id="@item.ProductId" class="btn btn-danger btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                    <span class="text">Sil</span>
+                                </a>
+                            </td>
+                        }
+
+
+                        @if (@Model.UserRole == "Admin" || @Model.UserRole == "Kalite" || @Model.UserRole == "Depo")
+                        {
+                            <td>
+
+                                <a asp-page="./FqCreate" asp-route-id="@item.ProductId" class="btn btn-secondary btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                    <span class="text">Parça Ekle</span>
+                                </a>
+                            </td>
+                            <td>
+                                <a asp-page="./WCreate" asp-route-id="@item.ProductId" class="btn btn-secondary btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                    <span class="text">Depoya Ekle</span>
+
+                                </a>
+
+                            </td>
+                        }
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

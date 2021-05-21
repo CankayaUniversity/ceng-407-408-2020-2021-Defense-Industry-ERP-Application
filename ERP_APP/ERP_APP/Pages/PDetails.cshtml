@@ -1,0 +1,128 @@
+﻿@page
+@model ERP_APP.Pages.PDetailsModel
+
+@{
+    ViewData["Title"] = "PDetails";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<h1>Detay</h1>
+
+    <div>
+     
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <h7> Ürün ID </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.ProductId)
+            </dd>
+
+            <dt class="col-sm-2">
+                <h7> Stok Numarası </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.StokNo)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Sipariş Numarası </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.OrderNo)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> İş Emri Numarası </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.WorkOrderNo)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Ürün Adeti </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.Piece)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Şirket Adı </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Product.CompanyName)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Seri Numarası </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.SerialNum)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Durumu </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Status)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Son İşlem Tarihi </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.UpdateDate)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Üretim Tipi </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.ProductionType)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Kablaj Tipi </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.HarnessType)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Bildirimler </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Notification)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Nerede </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Place)
+            </dd>
+
+
+
+            <dt class="col-sm-2">
+                <h7> Ara Denetim </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.IsOuality)
+            </dd>
+
+            <dt class="col-sm-2">
+                <h7> Son denetim </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.IsFinal)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Test </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.IsTest)
+            </dd>
+            <dt class="col-sm-2">
+                <h7> Not </h7>
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TblProduction.Remarks)
+            </dd>
+        </dl>
+    </div>
+
+    <div>
+        <a asp-page="./PEdit" asp-route-id="@Model.TblProduction.ProductionId">Düzenle</a> |
+        <a asp-page="./PDisplay">Listeye Dön</a>
+    </div>

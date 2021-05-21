@@ -1,0 +1,103 @@
+﻿@page
+@model ERP_APP.Pages.SDetailsModel
+
+@{
+    ViewData["Title"] = "SDetails";
+    Layout = "~/Pages/Shared/_LayoutWelcome.cshtml";
+}
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <h7> Ürün ID </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.Product.ProductId)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Stok Numarası </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.Product.StokNo)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Sipariş Numarası </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.Product.OrderNo)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> İş Emri Numarası </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.Product.WorkOrderNo)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Ürün Adeti </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.Product.Piece)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Tarih </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.Date)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Fatura Numarası </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.InvoiceNo)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Seri No </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.seriNo)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Doküman Revizyonları </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.dokRev)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Göz Denetimi </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.eyes)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Elektriksel Denetim </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.elektrik)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Paketleme / Sevkiyat </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.paket)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Adet </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.Piece)
+        </dd>
+        <dt class="col-sm-2">
+            <h7> Not </h7>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblShipment.Remarks)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-page="./SEdit" asp-route-id="@Model.TblShipment.ShipmentId">Düzenle</a> |
+    <a asp-page="./SDisplay">Listeye Dön</a>
+</div>
